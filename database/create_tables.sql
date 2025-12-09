@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS employees (
     attrition VARCHAR(10)       -- Yes / No (Label for prediction)
 );
 
--- Optional: Table to store predictions for audit logs
+-- Table to store predictions for audit logs
 CREATE TABLE IF NOT EXISTS predictions_log (
     log_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id INT,
