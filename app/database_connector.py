@@ -46,3 +46,4 @@ class DatabaseConnector:
         connection.commit()
         cursor.close()
         connection.close()
+
