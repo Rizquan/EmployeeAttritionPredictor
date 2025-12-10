@@ -149,6 +149,7 @@ Inserting new rows
 Executing SQL queries
 
 📌 How to Run the Project
+
 1️⃣ Clone the repository
 git clone https://github.com/Rizquan/EmployeeAttritionPredictor.git
 
