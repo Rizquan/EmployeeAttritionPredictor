@@ -2,27 +2,27 @@
 
 A machine learning project that predicts whether an employee is likely to leave the company based on demographic, performance, satisfaction, and organizational factors.
 
-This is a complete end-to-end ML workflow including MySQL integration, data preprocessing, model training, evaluation, and visualization.
+This repository demonstrates a complete end-to-end ML workflow, including MySQL data storage, preprocessing, model training, evaluation, and visual analysis.
 
 🚀 Project Overview
 
-Employee attrition is a major concern for HR departments. This project builds a predictive model to estimate the likelihood of an employee leaving, helping companies take proactive action.
+Employee attrition is a critical issue for organizations. This project builds a predictive model to estimate the probability of an employee leaving, allowing companies to take proactive decisions.
 
 This system includes:
 
-✔ MySQL database to store employee data
+✔ MySQL database to store employee records
 
 ✔ Data loading via Python (database_connector.py)
 
-✔ Preprocessing: encoding, scaling, cleaning
+✔ Data preprocessing (cleaning, encoding, scaling)
 
-✔ Model training using TensorFlow / Scikit-Learn
+✔ Model training using Scikit-Learn & TensorFlow
 
-✔ Visual EDA & correlation analysis
+✔ Visual EDA, heatmaps, and insights
 
-✔ Model saving and loading (model_loader.py)
+✔ Model saving/loading (model_loader.py)
 
-✔ Organized file structure suitable for professional ML projects
+✔ Clean, modular file structure suitable for ML projects
 
 📂 Project Structure
 EmployeeAttritionPredictor/
@@ -42,52 +42,31 @@ EmployeeAttritionPredictor/
 │   └── model_training.ipynb
 │
 ├── models/
-│   └── attrition_model.pkl
+│   ├── attrition_model.h5
+│   └── scaler.pkl
+│
+├── visualizations/
+│   └── (saved charts)
 │
 └── README.md
 
 🛠 Technologies Used
-Languages
 
-Python
+Languages: Python, SQL
+Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn, TensorFlow/Keras, MySQL Connector
+Tools: VS Code, Jupyter Notebook, MySQL Workbench, GitHub
 
-SQL
+📊 Exploratory Data Analysis (EDA)
 
-Libraries
+The project includes visual insights such as:
 
-Pandas
+Line chart: Gender vs Years at Company
 
-NumPy
+Bar chart: Department vs Job Satisfaction
 
-Matplotlib
+Line chart: Job Role vs Average Monthly Income
 
-Seaborn
-
-Scikit-Learn
-
-TensorFlow / Keras
-
-MySQL Connector
-
-Tools
-
-VS Code / Jupyter Notebook
-
-MySQL Workbench
-
-GitHub for version control
-
-📊 Exploratory Data Analysis
-
-The project includes several visual insights such as:
-
-Gender vs Years at Company (Line Chart)
-
-Job Role vs Average Monthly Income (Line Chart)
-
-Department vs Job Satisfaction (Bar Chart)
-
-Overtime Distribution (Pie Chart)
+Pie chart: Overtime Distribution
 
 Correlation Heatmap
 
@@ -95,33 +74,27 @@ Attrition vs Job Satisfaction
 
 Performance Rating vs Income
 
-These help understand patterns before model training.
+These charts help understand patterns before modeling.
 
-🔧 Data Preprocessing Steps
+🔧 Data Preprocessing
 
-The preprocessing notebook includes:
+Performed in data_preprocessing.ipynb:
 
-Handling missing values
+Handle missing values
 
-One-hot encoding:
+One-hot encode categorical features
 
-gender, department, job_role
+Convert Yes/No → 1/0
 
-Binary conversion:
+Standard scaling (StandardScaler)
 
-overtime, attrition (Yes/No → 1/0)
+Train–test split
 
-Feature scaling using StandardScaler
-
-Train-test split
-
-Exporting cleaned data for model training
+Export scaled data and preprocessing objects
 
 🤖 Model Training
 
-The model is trained to predict attrition (1 = Yes, 0 = No):
-
-Models used:
+Models trained in model_training.ipynb:
 
 Logistic Regression
 
@@ -129,110 +102,96 @@ Random Forest Classifier
 
 TensorFlow Sequential Neural Network
 
-Each model is evaluated using:
+Evaluated using:
 
 Accuracy
 
-Precision
-
-Recall
-
-F1-Score
+Precision / Recall / F1-score
 
 Confusion Matrix
 
-The best-performing model is saved into:
+The final model and scaler are saved inside:
 
-models/attrition_model.pkl
+models/
+    attrition_model.h5
+    scaler.pkl
 
-📥 Loading the Model
+📥 Model Loading
 
-model_loader.py helps load any saved ML model to use for predictions:
+scripts/model_loader.py allows:
 
-For testing new employee data
+Loading the trained model
 
-For deploying in a future UI / API
+Loading the scaler
 
-For integration into dashboards
+Running predictions on new employee data
 
-This ensures modularity and clean separation of concerns.
+This enables simple integration with future UI/API systems.
 
 🗄 Database Setup
 
-The MySQL schema is created using:
+sql/create_tables.sql contains:
 
-sql/create_tables.sql
+Schema for employee_data table
 
+Column definitions
+
+Primary keys and constraints
 
 database_connector.py handles:
 
-Database connection
+Opening connection
 
-Data fetch
+Fetching data
 
-Data insertion
+Inserting new rows
 
-Query execution
-
-This makes the project production-friendly.
+Executing SQL queries
 
 📌 How to Run the Project
-
-Clone the repository
-
+1️⃣ Clone the repository
 git clone https://github.com/Rizquan/EmployeeAttritionPredictor.git
 
-
-Create a virtual environment
-
+2️⃣ Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  (or)  venv\Scripts\activate
+venv\Scripts\activate   (Windows)
 
-
-Install dependencies
-
+3️⃣ Install dependencies
 pip install -r requirements.txt
 
+4️⃣ Set up MySQL database
 
-Set up the MySQL database
+Open MySQL Workbench
 
-Run the SQL file in Workbench
+Run sql/create_tables.sql
 
-Import data and preprocess
+5️⃣ Preprocess data
 
-Open data_preprocessing.ipynb
+Open Jupyter Notebook:
 
-Train the model
+notebooks/data_preprocessing.ipynb
 
-Open model_training.ipynb
+6️⃣ Train the model
+notebooks/model_training.ipynb
 
-Make predictions
+7️⃣ Make predictions
 
-Use model_loader.py
+Use:
 
-🎯 Future Improvements
+scripts/model_loader.py
 
-Streamlit-based interactive UI
+🎯 Future Enhancements
 
-API deployment using FastAPI/Flask
+Streamlit UI for real-time predictions
 
-AutoML hyperparameter tuning
+FastAPI/Flask deployment
 
-Dashboard to view attrition trends
+Hyperparameter tuning
+
+Automated dashboards for HR analytics
 
 👤 Author
 
 Mohammed Rizquan
-Data Science undergraduate @ SLIIT
-Passionate about AI, machine learning, and data engineering.
-
-🌟 Final Opinion for You as a Year 2 Student
-
-This project is perfect for GitHub WITHOUT a UI:
-
-✔ Clean structure
-✔ Database + ML integration
-✔ Visualizations
-✔ Well-documented notebooks
-✔ Model saving/loading
-✔ Looks professional and industry-ready
+Undergraduate in Data Science @ SLIIT
+Interested in Machine Learning, AI, and Data Engineering.
