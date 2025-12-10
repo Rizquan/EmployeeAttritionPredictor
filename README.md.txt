@@ -180,7 +180,7 @@ This makes the project production-friendly.
 
 Clone the repository
 
-git clone https://github.com/<your-username>/EmployeeAttritionPredictor.git
+git clone https://github.com/Rizquan/EmployeeAttritionPredictor.git
 
 
 Create a virtual environment
